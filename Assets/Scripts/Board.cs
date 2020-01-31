@@ -26,7 +26,7 @@ public class Board : MonoBehaviour
 
     private void SetupCamera()
     {
-        Camera.main.transform.position = new Vector3((float)m_width / 2, ((float)m_height - (float)m_header) / 2, -10f);
+        Camera.main.transform.position = new Vector3((float)(m_width-1) / 2, ((float)(m_height-1)- (float)m_header) / 2, -10f);
         float aspectratio = (float)Screen.width / (float)Screen.height;
         float verticalSize = (float)m_height / 2f + (float)borderSize;
         Camera.main.orthographicSize = verticalSize;
