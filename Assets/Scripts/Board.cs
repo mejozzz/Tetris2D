@@ -9,6 +9,7 @@ public class Board : MonoBehaviour
     public int m_height;
     public int m_width;
     public int m_header;
+    public int borderSize;
 
     private Transform[,] m_grid;
 
@@ -20,6 +21,15 @@ public class Board : MonoBehaviour
     private void Start()
     {
         DrawEmptyCells();
+        SetupCamera();
+    }
+
+    private void SetupCamera()
+    {
+        Camera.main.transform.position = new Vector3((float)m_width / 2, ((float)m_height - (float)m_header) / 2, -10f);
+        float aspectratio = (float)Screen.width / (float)Screen.height;
+        float verticalSize = (float)m_height / 2f + (float)borderSize;
+        Camera.main.orthographicSize = verticalSize;
     }
 
     private bool IsWithinBoard(int x, int y)            // Set Boundaries
